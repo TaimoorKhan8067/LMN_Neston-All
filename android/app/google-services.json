@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "312239732181",
+    "project_id": "lmnneston",
+    "storage_bucket": "lmnneston.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312239732181:android:7d95171f8843471f22f95c",
+        "android_client_info": {
+          "package_name": "com.example.lmn_neston"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312239732181-nhr6jqnqehbm3elahjrka94e1r6j9p7v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-MGEamQxOX8cR1OtOl0txYfzeTwsObI4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312239732181-nhr6jqnqehbm3elahjrka94e1r6j9p7v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
