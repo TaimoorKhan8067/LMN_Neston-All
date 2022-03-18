@@ -9,9 +9,8 @@ import 'database/user_local_data.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
-  UserLocalData.init();
-
+  await Firebase.initializeApp();
+  await UserLocalData.init();
   runApp(MyApp());
 }
 
