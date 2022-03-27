@@ -198,7 +198,7 @@ class _InvitePageState extends State<InvitePage> {
 
                 sendPushMessage(appUser.NotificationToken!);
               },
-              color: Colors.teal,
+              color: appPrimaryColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(60)),
               child: const Text(

@@ -7,6 +7,7 @@ import 'package:file_picker/file_picker.dart';
 
 import 'package:path/path.dart';
 
+import '../configs/constant.dart';
 import '../database/firebase_api.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -109,7 +110,7 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
       minWidth: double.infinity,
       height: 60,
       onPressed: () => _pickFiles(),
-      color: Colors.teal,
+      color: appPrimaryColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60)),
       child: const Text(
         "Upload",

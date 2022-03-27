@@ -55,53 +55,62 @@ class _FeedbackPageState extends State<FeedbackPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Form(
-          key: _key,
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Spacer(),
-                const Text(
-                  "Feedback",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 50,
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Form(
+            key: _key,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Spacer(),
+                  const Text(
+                    "Feedback",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 50,
+                    ),
                   ),
-                ),
-                const Text(
-                  "Leave your comments below and remember all comments left are anonymous",
-                  style: TextStyle(
-                    // fontWeight: FontWeight.w500,
-                    fontSize: 20,
+                  const Text(
+                    "Leave your comments below and remember all comments left are anonymous",
+                    style: TextStyle(
+                      // fontWeight: FontWeight.w500,
+                      fontSize: 20,
+                    ),
                   ),
-                ),
-                makeInput(label: "", all_controller: _feedback),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: MaterialButton(
-                    minWidth: double.infinity,
-                    height: 60,
-                    onPressed: () {
-                      _submitForm();
-                    },
-                    color: Colors.teal,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(60)),
-                    child: const Text(
-                      "Submit",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
+                  makeInput(label: "", all_controller: _feedback),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: MaterialButton(
+                      minWidth: double.infinity,
+                      height: 60,
+                      onPressed: () {
+                        _submitForm();
+                      },
+                      color: Colors.teal,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(60)),
+                      child: const Text(
+                        "Submit",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const Spacer(),
-              ]),
+                  const Spacer(),
+                ]),
+          ),
         ),
       ),
     );

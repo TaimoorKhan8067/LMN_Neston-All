@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:lmn_neston/models/app_user.dart';
 import '../models/users.dart';
 import '../widgets/custom_toast.dart';
@@ -43,11 +46,11 @@ class UserAPI {
         .get();
   }
 
-  // Future<String> uploadImage(File? file, String uid) async {
-  //   final Reference ref =
-  //       FirebaseStorage.instance.ref().child('users').child(uid);
-  //   await ref.putFile(file!);
-  //   String url = await ref.getDownloadURL();
-  //   return url;
-  // }
+  Future<String> uploadImage(File? file, String uid) async {
+    final Reference ref =
+        FirebaseStorage.instance.ref().child('users').child(uid);
+    await ref.putFile(file!);
+    String url = await ref.getDownloadURL();
+    return url;
+  }
 }

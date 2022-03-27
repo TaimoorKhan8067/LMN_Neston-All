@@ -4,38 +4,38 @@ class AppUserModel {
   // final Map? sectionsAppointed;
   AppUserModel(
       {this.id,
-      // this.name,
-      // this.phoneNo,
+      this.name,
+      this.phoneNo,
       this.password,
-      // this.createdAt,
-      // this.isAdmin,
+      this.position,
+      this.branch,
       this.email,
-      // this.joinedAt,
-      // this.imageUrl,
+      this.address,
+      this.imageUrl,
       this.NotificationToken});
 
   final String? id;
-  // final String? name;
-  // final String? imageUrl;
-  // final int? phoneNo;
+  final String? name;
+  final String? imageUrl;
+  final String? phoneNo;
   final String? password;
-  // final Timestamp? createdAt;
-  // final String? joinedAt;
-  // final bool? isAdmin;
+  final String? position;
+  final String? branch;
+  final String? address;
   final String? email;
   String? NotificationToken;
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      // 'name': name,
-      // 'phoneNo': phoneNo,
+      'name': name,
+      'phoneNo': phoneNo,
       'password': password,
-      // 'createdAt': createdAt,
-      // 'isAdmin': isAdmin,
+      'position': position,
+      'branch': branch,
       'email': email,
-      // 'joinedAt': joinedAt,
-      // 'imageUrl': imageUrl,
+      'address': address,
+      'imageUrl': imageUrl,
       'NotificationToken': NotificationToken,
     };
   }
@@ -44,14 +44,14 @@ class AppUserModel {
   factory AppUserModel.fromMap(Map<String, dynamic> map) {
     return AppUserModel(
         id: map['id'],
-        // name: map['userName'],
-        // phoneNo: map['phoneNo'],
+        name: map['userName'],
+        phoneNo: map['phoneNo'],
         password: map['password'],
-        // createdAt: map['createdAt'],
-        // imageUrl: map['imageUrl'],
-        // isAdmin: map['isAdmin'],
+        position: map['position'],
+        imageUrl: map['imageUrl'],
+        branch: map['branch'],
         email: map['email'],
-        // joinedAt: map['joinedAt'],
+        address: map['address'],
         NotificationToken: map['NotificationToken']);
   }
 
@@ -60,13 +60,13 @@ class AppUserModel {
     return AppUserModel(
       id: doc.data()['id'],
       password: doc.data()['password'],
-      // name: doc.data()['name'],
-      // createdAt: doc.data()['createdAt'],
+      name: doc.data()['name'],
+      position: doc.data()['position'],
       email: doc.data()['email'],
-      // imageUrl: doc.data()['imageUrl'],
-      // isAdmin: doc.data()['isAdmin'],
-      // phoneNo: doc.data()['phoneNo'],
-      // joinedAt: doc.data()['joinedAt'],
+      imageUrl: doc.data()['imageUrl'],
+      branch: doc.data()['branch'],
+      phoneNo: doc.data()['phoneNo'],
+      address: doc.data()['address'],
       NotificationToken: doc.data()['NotificationToken'],
     );
   }
@@ -75,13 +75,13 @@ class AppUserModel {
     return AppUserModel(
       id: doc('id'),
       password: doc('password'),
-      // name: doc.data()['name'],
-      // createdAt: doc.data()['createdAt'],
+      name: doc.data()['name'],
+      position: doc.data()['position'],
       email: doc('email'),
-      // imageUrl: doc.data()['imageUrl'],
-      // isAdmin: doc.data()['isAdmin'],
-      // phoneNo: doc.data()['phoneNo'],
-      // joinedAt: doc.data()['joinedAt'],
+      imageUrl: doc.data()['imageUrl'],
+      branch: doc.data()['branch'],
+      phoneNo: doc.data()['phoneNo'],
+      address: doc.data()['address'],
       NotificationToken: doc('NotificationToken'),
     );
   }

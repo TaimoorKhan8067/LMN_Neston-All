@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../database/user_local_data.dart';
+
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
@@ -8,18 +10,20 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  String name = "Name Here";
-  String email = "Email Here at mail com";
-  String phone = "Phone Here";
-  String branch = "Branch Here";
-  String position = "Position Here";
-  String address = "Address Here";
+  String name = UserLocalData.getUserDisplayName;
+  String imageUrl = UserLocalData.getUserImageUrl;
+  String email = UserLocalData.getUserEmail;
+  String phone = UserLocalData.getPhoneNumber;
+  String branch = UserLocalData.getBranch;
+  String position = UserLocalData.getUUserPosition;
+  String address = UserLocalData.getUUserAddress;
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
     final _height = MediaQuery.of(context).size.height;
 
     return Stack(
+      alignment: Alignment.center,
       children: <Widget>[
         Scaffold(
             backgroundColor: Colors.transparent,
@@ -31,7 +35,11 @@ class _ProfileState extends State<Profile> {
                   ),
                   CircleAvatar(
                     radius: _width < _height ? _width / 4 : _height / 4,
-                    backgroundImage: const AssetImage('assets/girl.jpg'),
+                    // backgroundImage: NetworkImage(imageUrl),
+                    // ignore: unnecessary_null_comparison
+                    backgroundImage: imageUrl != null
+                        ? NetworkImage(imageUrl)
+                        : const AssetImage('assets/dummy.jpg') as ImageProvider,
                   ),
                   SizedBox(
                     height: _height / 25.0,
@@ -48,49 +56,114 @@ class _ProfileState extends State<Profile> {
                     padding: EdgeInsets.only(
                         top: _height / 30, left: _width / 8, right: _width / 8),
                   ),
-                  Text(
-                    email,
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: _width / 25,
-                    ),
-                    textAlign: TextAlign.center,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Email : ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: _width / 25,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        email,
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: _width / 25,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
                   const Spacer(),
-                  Text(
-                    phone,
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: _width / 25,
-                    ),
-                    textAlign: TextAlign.center,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Phone : ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: _width / 25,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        phone,
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: _width / 25,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
                   const Spacer(),
-                  Text(
-                    position,
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: _width / 25,
-                    ),
-                    textAlign: TextAlign.center,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Position : ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: _width / 25,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        position,
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: _width / 25,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
                   const Spacer(),
-                  Text(
-                    branch,
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: _width / 25,
-                    ),
-                    textAlign: TextAlign.center,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Branch : ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: _width / 25,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        branch,
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: _width / 25,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
                   const Spacer(),
-                  Text(
-                    address,
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: _width / 25,
-                    ),
-                    textAlign: TextAlign.center,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Address : ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: _width / 25,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text(
+                        address,
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: _width / 25,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
                   const Spacer(),
                   const Spacer(),

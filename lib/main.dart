@@ -23,17 +23,26 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: true,
-      home: (UserLocalData.getUserUID == '')
-          ? const SignUpPage()
-          : const HomePage(),
-      routes: <String, WidgetBuilder>{
-        LoginPage.routeName: (_) => const LoginPage(),
-        HomePage.routeName: (_) => const HomePage(),
-        SignUpPage.routeName: (_) => const SignUpPage(),
-        MainScreen.routeName: (_) => const MainScreen(),
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
       },
+      child: MaterialApp(
+        debugShowCheckedModeBanner: true,
+        home: (UserLocalData.getUserUID == '')
+            ? const SignUpPage()
+            : const MainScreen(),
+        routes: <String, WidgetBuilder>{
+          LoginPage.routeName: (_) => const LoginPage(),
+          HomePage.routeName: (_) => const HomePage(),
+          SignUpPage.routeName: (_) => const SignUpPage(),
+          MainScreen.routeName: (_) => const MainScreen(),
+        },
+      ),
     );
   }
 }

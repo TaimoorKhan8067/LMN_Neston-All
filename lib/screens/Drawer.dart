@@ -23,7 +23,14 @@ class _LeadsDrawerState extends State<CustomDrawer> {
         children: [
           const Center(
             child: DrawerHeader(
-              child: Text('Any Logo Here'),
+              child: Material(
+                  elevation: 8.0,
+                  shape: CircleBorder(),
+                  child: CircleAvatar(
+                    backgroundColor: appBackGroundColor,
+                    child: Image(image: AssetImage('assets/logo.png')),
+                    radius: 50.0,
+                  )),
             ),
           ),
           ListTile(

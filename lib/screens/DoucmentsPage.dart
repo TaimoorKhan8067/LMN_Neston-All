@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../configs/constant.dart';
 import 'filepicker.dart';
 
 @immutable
@@ -105,7 +106,7 @@ class DemoAppIcon extends StatelessWidget {
           child: DecoratedBox(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.teal, Colors.blueGrey],
+                colors: [appPrimaryColor, Colors.blueGrey],
               ),
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),

@@ -29,7 +29,8 @@ dependencies:
   uuid: ^3.0.6
   fluttertoast: ^8.0.9  
   file_picker: ^4.5.1  
-  # image_picker: ^0.8.4+2
+  #image_picker: ^0.8.4+11
+  image_picker: ^0.8.4+2
 
 dev_dependencies:
   flutter_test:
@@ -42,3 +43,4 @@ flutter:
   assets:
     - assets/dummy.jpg
     - assets/girl.jpg
+    - assets/logo.png

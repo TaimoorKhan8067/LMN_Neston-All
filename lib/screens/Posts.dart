@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../configs/constant.dart';
+
 class Posts extends StatefulWidget {
   // final int indexRequired;
 
@@ -54,7 +56,7 @@ class _PostsState extends State<Posts> {
                     ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.teal),
+                            MaterialStateProperty.all<Color>(appPrimaryColor),
                       ),
                       onPressed: null,
                       child: const Text(

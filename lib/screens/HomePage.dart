@@ -5,6 +5,8 @@ import 'package:lmn_neston/database/user_local_data.dart';
 import 'package:lmn_neston/screens/Drawer.dart';
 import 'package:lmn_neston/screens/Posts.dart';
 
+import '../configs/constant.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
   static const String routeName = '/HomePage';
@@ -64,7 +66,7 @@ class _HomePageState extends State<HomePage> {
             //       minWidth: double.infinity,
             //       height: 50,
             //       onPressed: () {},
-            //       color: Colors.teal,
+            //       color: appPrimaryColor,
             //       shape: RoundedRectangleBorder(
             //           borderRadius: BorderRadius.circular(60)),
             //       child: const Text(
@@ -126,7 +128,7 @@ class CardforHomePage extends StatelessWidget {
                   ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.teal),
+                          MaterialStateProperty.all<Color>(appPrimaryColor),
                     ),
                     onPressed: null,
                     child: const Text(

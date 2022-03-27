@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:lmn_neston/screens/HomePage.dart';
 import 'package:lmn_neston/screens/MainScreen.dart';
 
+import '../configs/constant.dart';
 import '../database/auth_methods.dart';
 import '../database/user_local_data.dart';
 import '../widgets/custom_toast.dart';
@@ -24,123 +25,128 @@ class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-      child: Form(
-        key: _key,
-        child: Column(
-          children: <Widget>[
-            const Spacer(),
-            AvatarGlow(
-              endRadius: 90,
-              duration: const Duration(seconds: 2),
-              glowColor: Colors.black,
-              repeat: true,
-              repeatPauseDuration: const Duration(seconds: 1),
-              startDelay: const Duration(seconds: 1),
-              child: Material(
-                  elevation: 8.0,
-                  shape: const CircleBorder(),
-                  child: CircleAvatar(
-                    backgroundColor: Colors.teal[100],
-                    child: const Icon(
-                      Icons.audiotrack,
-                      color: Colors.teal,
-                      size: 50.0,
-                    ),
-                    radius: 50.0,
-                  )),
-            ),
-            const Text(
-              "LogIn",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: Scaffold(
+          body: Center(
+        child: Form(
+          key: _key,
+          child: Column(
+            children: <Widget>[
+              const Spacer(),
+              const AvatarGlow(
+                endRadius: 90,
+                duration: Duration(seconds: 2),
+                glowColor: Colors.black,
+                repeat: true,
+                repeatPauseDuration: Duration(seconds: 1),
+                startDelay: Duration(seconds: 1),
+                child: Material(
+                    elevation: 8.0,
+                    shape: CircleBorder(),
+                    child: CircleAvatar(
+                      backgroundColor: appPrimaryColor,
+                      child: Image(image: AssetImage('assets/logo.png')),
+                      radius: 50.0,
+                    )),
               ),
-            ),
-            Text(
-              "Login with your Account",
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.grey[700],
+              const Text(
+                "LogIn",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 30.0,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Column(
-                children: [
-                  makeInput(label: "Email", all_controller: _email),
-                  makeInput(
-                      label: "Password",
-                      obsureText: true,
-                      all_controller: _password),
-                ],
+              Text(
+                "Login with your Account",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.grey[700],
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 50.0,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Container(
-                padding: const EdgeInsets.only(top: 1, left: 1),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    border: const Border(
-                        bottom: BorderSide(color: Colors.black),
-                        top: BorderSide(color: Colors.black),
-                        right: BorderSide(color: Colors.black),
-                        left: BorderSide(color: Colors.black))),
-                child: MaterialButton(
-                  minWidth: double.infinity,
-                  height: 60,
-                  onPressed: () async {
-                    // Navigator.of(context).pushNamedAndRemoveUntil(
-                    //   MainScreen.routeName,
-                    //   (Route<dynamic> route) => false,
-                    // );
-                    if (_key.currentState!.validate()) {
-                      showLoadingDislog(context);
-                      final User? _user =
-                          await AuthMethod().loginWithEmailAndPassword(
-                        _email.text.trim(),
-                        _password.text.trim(),
-                      );
-                      if (_user != null) {
-                        UserLocalData.setUserUID(_user.uid);
-                        print(_user.uid);
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                          MainScreen.routeName,
-                          (Route<dynamic> route) => false,
+              const SizedBox(
+                height: 30.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: Column(
+                  children: [
+                    makeInput(label: "Email", all_controller: _email),
+                    makeInput(
+                        label: "Password",
+                        obsureText: true,
+                        all_controller: _password),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 50.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: Container(
+                  padding: const EdgeInsets.only(top: 1, left: 1),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      border: const Border(
+                          bottom: BorderSide(color: Colors.black),
+                          top: BorderSide(color: Colors.black),
+                          right: BorderSide(color: Colors.black),
+                          left: BorderSide(color: Colors.black))),
+                  child: MaterialButton(
+                    minWidth: double.infinity,
+                    height: 60,
+                    onPressed: () async {
+                      // Navigator.of(context).pushNamedAndRemoveUntil(
+                      //   MainScreen.routeName,
+                      //   (Route<dynamic> route) => false,
+                      // );
+                      if (_key.currentState!.validate()) {
+                        showLoadingDislog(context);
+                        final User? _user =
+                            await AuthMethod().loginWithEmailAndPassword(
+                          _email.text.trim(),
+                          _password.text.trim(),
                         );
-                      } else {
-                        Navigator.of(context).pop();
-                        CustomToast.errorToast(
-                            message: 'email OR password in incorrect');
+                        if (_user != null) {
+                          UserLocalData.setUserUID(_user.uid);
+                          print(_user.uid);
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                            MainScreen.routeName,
+                            (Route<dynamic> route) => false,
+                          );
+                        } else {
+                          Navigator.of(context).pop();
+                          CustomToast.errorToast(
+                              message: 'email OR password in incorrect');
+                        }
                       }
-                    }
-                  },
-                  color: Colors.teal,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(60)),
-                  child: const Text(
-                    "LogIn",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
+                    },
+                    color: appPrimaryColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(60)),
+                    child: const Text(
+                      "LogIn",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            const Spacer(),
-          ],
+              const Spacer(),
+            ],
+          ),
         ),
-      ),
-    ));
+      )),
+    );
   }
 }
 

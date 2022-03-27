@@ -6,6 +6,8 @@ import 'package:lmn_neston/screens/HomePage.dart';
 import 'package:lmn_neston/screens/InvitePage.dart';
 import 'package:lmn_neston/screens/ProfilePage.dart';
 
+import '../configs/constant.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
   static const String routeName = '/MainPage';
@@ -37,7 +39,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Title Here"),
-        backgroundColor: Colors.teal,
+        backgroundColor: appPrimaryColor,
       ),
       drawer: const CustomDrawer(),
       body: Center(
@@ -48,27 +50,27 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.teal,
+            backgroundColor: appPrimaryColor,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
-            backgroundColor: Colors.teal,
+            backgroundColor: appPrimaryColor,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.share),
             label: 'Inivte',
-            backgroundColor: Colors.teal,
+            backgroundColor: appPrimaryColor,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.pageview_rounded),
             label: 'Docs',
-            backgroundColor: Colors.teal,
+            backgroundColor: appPrimaryColor,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.feedback_rounded),
             label: 'Feedback',
-            backgroundColor: Colors.teal,
+            backgroundColor: appPrimaryColor,
           ),
         ],
         currentIndex: _selectedIndex,
