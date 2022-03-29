@@ -2,7 +2,6 @@
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:lmn_neston/screens/HomePage.dart';
 import 'package:lmn_neston/screens/MainScreen.dart';
 
 import '../configs/constant.dart';
