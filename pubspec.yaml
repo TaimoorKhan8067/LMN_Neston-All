@@ -19,7 +19,7 @@ dependencies:
   firebase_storage: ^10.2.9
 
   #google_sign_in: ^5.2.4
-  firebase_messaging: ^11.2.11  
+  firebase_messaging: ^11.2.11
   http: ^0.13.4
   flutter_local_notifications: ^9.4.0
 
@@ -27,8 +27,8 @@ dependencies:
   shared_preferences: ^2.0.13
 
   uuid: ^3.0.6
-  fluttertoast: ^8.0.9  
-  file_picker: ^4.5.1  
+  fluttertoast: ^8.0.9
+  file_picker: ^4.5.1
   #image_picker: ^0.8.4+11
   image_picker: ^0.8.4+2
 
