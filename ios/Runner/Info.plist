@@ -24,12 +24,12 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Need the access of your photo library</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Need the access of your Microphone</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Need the access of your Camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Need the access of your Microphone</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need the access of your photo library</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
