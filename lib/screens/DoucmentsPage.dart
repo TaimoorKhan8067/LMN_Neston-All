@@ -67,11 +67,8 @@ class _DocumentsPageState extends State<DocumentsPage> {
         overflow: TextOverflow.ellipsis,
         style: theme.textTheme.headline6,
       ),
-      subtitle: Text(
-        'Lorem ipsum dolor #${index + 1}',
-        overflow: TextOverflow.ellipsis,
-        style: theme.textTheme.caption,
-      ),
+      // sub
+
       trailing: SizedBox(
         width: 96,
         child: AnimatedBuilder(
@@ -105,9 +102,10 @@ class DemoAppIcon extends StatelessWidget {
           height: 80,
           child: DecoratedBox(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [appPrimaryColor, Colors.blueGrey],
-              ),
+              color: appPrimaryColor,
+              // gradient: LinearGradient(
+              //   colors: [appPrimaryColor, Colors.blueGrey],
+              // ),
               borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
             child: Center(

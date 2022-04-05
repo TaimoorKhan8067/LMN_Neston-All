@@ -12,7 +12,8 @@ class AppUserModel {
       this.email,
       this.address,
       this.imageUrl,
-      this.NotificationToken});
+      this.NotificationToken,
+      this.points});
 
   final String? id;
   final String? name;
@@ -23,6 +24,7 @@ class AppUserModel {
   final String? branch;
   final String? address;
   final String? email;
+  final String? points;
   String? NotificationToken;
 
   Map<String, dynamic> toMap() {
@@ -36,6 +38,7 @@ class AppUserModel {
       'email': email,
       'address': address,
       'imageUrl': imageUrl,
+      'points': points,
       'NotificationToken': NotificationToken,
     };
   }
@@ -52,6 +55,7 @@ class AppUserModel {
         branch: map['branch'],
         email: map['email'],
         address: map['address'],
+        points: map['points'],
         NotificationToken: map['NotificationToken']);
   }
 
@@ -67,6 +71,7 @@ class AppUserModel {
       branch: doc.data()['branch'],
       phoneNo: doc.data()['phoneNo'],
       address: doc.data()['address'],
+      points: doc.data()['points'],
       NotificationToken: doc.data()['NotificationToken'],
     );
   }
@@ -82,6 +87,7 @@ class AppUserModel {
       branch: doc.data()['branch'],
       phoneNo: doc.data()['phoneNo'],
       address: doc.data()['address'],
+      points: doc.data()['points'],
       NotificationToken: doc('NotificationToken'),
     );
   }

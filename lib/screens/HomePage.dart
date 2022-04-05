@@ -136,13 +136,14 @@ class _HomePageState extends State<HomePage> {
               ),
               // ignore: sized_box_for_whitespace
               Container(
-                  padding: const EdgeInsets.fromLTRB(10, 100, 0, 0),
-                  height: MediaQuery.of(context).size.height * 0.16,
-                  child: Image(
-                    image: _pickedImage != null
-                        ? FileImage(_pickedImage!)
-                        : const AssetImage('assets/dummy.jpg') as ImageProvider,
-                  )),
+                padding: const EdgeInsets.fromLTRB(10, 100, 0, 0),
+                height: MediaQuery.of(context).size.height * 0.16,
+                child: _pickedImage != null
+                    ? Image(image: FileImage(_pickedImage!)
+                        // : const AssetImage('assets/dummy.jpg') as ImageProvider,
+                        )
+                    : const Text('Image Here'),
+              ),
             ]),
           ),
           const SizedBox(

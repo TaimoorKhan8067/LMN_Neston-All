@@ -21,7 +21,7 @@ class InvitePage extends StatefulWidget {
 
 class _InvitePageState extends State<InvitePage> {
   final TextEditingController _email = TextEditingController();
-  int points = 1345;
+  String points = UserLocalData.getpoints;
   void initState() {
     super.initState();
 
@@ -153,7 +153,7 @@ class _InvitePageState extends State<InvitePage> {
       );
       // print('FCM request for device sent!');
       CustomToast.successToast(
-        message: 'FCM request for device sent!',
+        message: 'Congratulations, you have been awarded +1 points.',
       );
     } catch (e) {
       print(e);
@@ -191,11 +191,11 @@ class _InvitePageState extends State<InvitePage> {
               minWidth: double.infinity,
               height: 60,
               onPressed: () async {
+                points = (int.parse(points) + 1).toString();
                 final QuerySnapshot<Map<String, dynamic>> query =
                     await UserAPI().getUidFromEmail(email: _email.text);
                 final AppUserModel appUser =
                     AppUserModel.fromDocument(query.docs[0]);
-
                 sendPushMessage(appUser.NotificationToken!);
               },
               color: appPrimaryColor,
