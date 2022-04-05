@@ -18,6 +18,7 @@ class UserLocalData {
   static const String _branch = 'BRANCH';
   static const String _address = 'ADDRESS';
   static const String _androidNotificationToken = 'androidNotificationToken';
+  static const String _points = 'points';
 
   //s
   // Setters
@@ -49,6 +50,9 @@ class UserLocalData {
   static Future<void> setAndroidNotificationToken(String token) async =>
       _preferences!.setString(_androidNotificationToken, token);
 
+  static Future<void> setpoints(String points) async =>
+      _preferences!.setString(_points, points);
+
   //
   // Getters
   //
@@ -66,6 +70,7 @@ class UserLocalData {
   static String get getUUserAddress => _preferences!.getString(_address) ?? '';
   static String get getAndroidNotificationToken =>
       _preferences!.getString(_androidNotificationToken) ?? '';
+  static String get getpoints => _preferences!.getString(_points) ?? '';
 
   void storeAppUserData({required AppUserModel appUser, String token = ''}) {
     setUserUID(appUser.id!);
@@ -77,5 +82,6 @@ class UserLocalData {
     setUserAdress(appUser.address!);
     setBranch(appUser.branch!);
     setAndroidNotificationToken(token);
+    setpoints(appUser.points!);
   }
 }

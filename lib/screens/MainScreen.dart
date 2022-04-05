@@ -38,7 +38,18 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Title Here"),
+        title: Text((_selectedIndex) == 0
+            ? 'Home Page'
+            : (_selectedIndex) == 1
+                ? 'Profile Page'
+                : (_selectedIndex) == 2
+                    ? 'Invite Page'
+                    : (_selectedIndex) == 3
+                        ? 'Doc Page'
+                        : (_selectedIndex) == 4
+                            ? 'FeedBack Page'
+                            : 'Anything'),
+        // (_selectedIndex==0) ? Text('Home Page'): (_selectedIndex==1)?Text('2 Page'): (_selectedIndex==1)?Text('Invite Page'): Text('Title Here'),
         backgroundColor: appPrimaryColor,
       ),
       drawer: const CustomDrawer(),

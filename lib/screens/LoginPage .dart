@@ -3,6 +3,7 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lmn_neston/screens/MainScreen.dart';
+import 'package:lmn_neston/screens/SignUp.dart';
 
 import '../configs/constant.dart';
 import '../database/auth_methods.dart';
@@ -39,31 +40,25 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: <Widget>[
               const Spacer(),
-              const AvatarGlow(
-                endRadius: 90,
-                duration: Duration(seconds: 2),
-                glowColor: Colors.black,
-                repeat: true,
-                repeatPauseDuration: Duration(seconds: 1),
-                startDelay: Duration(seconds: 1),
-                child: Material(
-                    elevation: 8.0,
-                    shape: CircleBorder(),
-                    child: CircleAvatar(
-                      backgroundColor: appPrimaryColor,
-                      child: Image(image: AssetImage('assets/logo.png')),
-                      radius: 50.0,
-                    )),
+              const Material(
+                // elevation: 8.0,
+                // shape: CircleBorder(),
+                child: Image(image: AssetImage('assets/logo.png')),
+                //  CircleAvatar(
+                //   backgroundColor: appPrimaryColor,
+                //   child: Image(image: AssetImage('assets/logo.png')),
+                //   radius: 50.0,
+                // ),
               ),
               const Text(
-                "LogIn",
+                "Log  In",
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Login with your Account",
+                "Log In with your Account",
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.grey[700],
@@ -92,12 +87,13 @@ class _LoginPageState extends State<LoginPage> {
                 child: Container(
                   padding: const EdgeInsets.only(top: 1, left: 1),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
-                      border: const Border(
-                          bottom: BorderSide(color: Colors.black),
-                          top: BorderSide(color: Colors.black),
-                          right: BorderSide(color: Colors.black),
-                          left: BorderSide(color: Colors.black))),
+                    borderRadius: BorderRadius.circular(40),
+                    // border: const Border(
+                    //     bottom: BorderSide(color: Colors.black),
+                    //     top: BorderSide(color: Colors.black),
+                    //     right: BorderSide(color: Colors.black),
+                    //     left: BorderSide(color: Colors.black)),
+                  ),
                   child: MaterialButton(
                     minWidth: double.infinity,
                     height: 60,
@@ -131,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(60)),
                     child: const Text(
-                      "LogIn",
+                      "Log  In",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 16,
@@ -139,6 +135,38 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              const Divider(
+                color: Colors.black,
+                thickness: 1,
+                indent: 20,
+                endIndent: 20,
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  const Text("Don't have an account? "),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushReplacementNamed(SignUpPage.routeName
+                              //arguments: (Route<dynamic> route) => false,
+                              );
+                    },
+                    child: const Text(
+                      "Sign Up",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                    ),
+                  ),
+                ],
               ),
               const Spacer(),
             ],

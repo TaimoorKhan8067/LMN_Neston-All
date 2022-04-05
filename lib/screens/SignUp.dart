@@ -63,10 +63,11 @@ class _SignUpPageState extends State<SignUpPage> {
           phoneNo: _phoneno.text.trim(),
           email: _email.text.trim(),
           imageUrl: _imageURL,
-          position: _position.text.trim(),
+          // position: _position.text.trim(),
           branch: _branch.text.trim(),
-          address: _address.text.trim(),
+          // address: _address.text.trim(),
           password: _password.text.trim(),
+          points: "0".trim(),
         );
         final bool _save = await UserAPI().addUser(_appUser);
         if (_save) {
@@ -153,6 +154,16 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
+                    const Material(
+                      // elevation: 8.0,
+                      // shape: CircleBorder(),
+                      child: Image(image: AssetImage('assets/logo.png')),
+                      //  CircleAvatar(
+                      //   backgroundColor: appPrimaryColor,
+                      //   child: Image(image: AssetImage('assets/logo.png')),
+                      //   radius: 50.0,
+                      // ),
+                    ),
                     AvatarGlow(
                       endRadius: 90,
                       duration: const Duration(seconds: 2),
@@ -169,13 +180,13 @@ class _SignUpPageState extends State<SignUpPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      "Create an Account,Its free",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.grey[700],
-                      ),
-                    ),
+                    // Text(
+                    //   "Create an Account,Its free",
+                    //   style: TextStyle(
+                    //     fontSize: 20,
+                    //     color: Colors.grey[700],
+                    //   ),
+                    // ),
                     const SizedBox(
                       height: 10.0,
                     ),
@@ -186,10 +197,10 @@ class _SignUpPageState extends State<SignUpPage> {
                           makeInput(label: "Name", all_controller: _name),
                           makeInput(label: "Email", all_controller: _email),
                           makeInput(label: "Phone", all_controller: _phoneno),
-                          makeInput(
-                              label: "Position", all_controller: _position),
+                          // makeInput(
+                          //     label: "Position", all_controller: _position),
                           makeInput(label: "Branch", all_controller: _branch),
-                          makeInput(label: "Address", all_controller: _address),
+                          // makeInput(label: "Address", all_controller: _address),
                           makeInput(
                               label: "Password",
                               obsureText: true,
@@ -209,12 +220,13 @@ class _SignUpPageState extends State<SignUpPage> {
                       child: Container(
                         padding: const EdgeInsets.only(top: 1, left: 1),
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40),
-                            border: const Border(
-                                bottom: BorderSide(color: Colors.black),
-                                top: BorderSide(color: Colors.black),
-                                right: BorderSide(color: Colors.black),
-                                left: BorderSide(color: Colors.black))),
+                          borderRadius: BorderRadius.circular(40),
+                          // border: const Border(
+                          //     bottom: BorderSide(color: Colors.black),
+                          //     top: BorderSide(color: Colors.black),
+                          //     right: BorderSide(color: Colors.black),
+                          //     left: BorderSide(color: Colors.black)),
+                        ),
                         child: MaterialButton(
                           minWidth: double.infinity,
                           height: 60,
@@ -251,7 +263,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         const Text("Already have an account? "),
                         InkWell(
                           onTap: () {
-                            Navigator.of(context).pushNamed(LoginPage.routeName
+                            Navigator.of(context).pushReplacementNamed(
+                                LoginPage.routeName
                                 //arguments: (Route<dynamic> route) => false,
                                 );
                           },

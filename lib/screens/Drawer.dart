@@ -24,21 +24,15 @@ class _LeadsDrawerState extends State<CustomDrawer> {
           const Center(
             child: DrawerHeader(
               child: Material(
-                  elevation: 8.0,
-                  shape: CircleBorder(),
-                  child: CircleAvatar(
-                    backgroundColor: appBackGroundColor,
-                    child: Image(image: AssetImage('assets/logo.png')),
-                    radius: 50.0,
-                  )),
+                elevation: 8.0,
+                // shape: CircleBorder(),
+                // child: CircleAvatar(
+                //   backgroundColor: appBackGroundColor,
+                child: Image(image: AssetImage('assets/logo.png')),
+                //   radius: 50.0,
+                // ),
+              ),
             ),
-          ),
-          ListTile(
-            title: const Text(' 1'),
-            onTap: () {
-              // Update the state of the app.
-              // ...
-            },
           ),
           ListTile(
             title: const Text(' Log Out'),

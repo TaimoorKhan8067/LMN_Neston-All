@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lmn_neston/configs/constant.dart';
 import 'package:lmn_neston/database/feedback_api.dart';
 import 'package:lmn_neston/database/user_local_data.dart';
 import 'package:lmn_neston/models/FeedBackModel.dart';
@@ -96,7 +97,7 @@ class _FeedbackPageState extends State<FeedbackPage> {
                       onPressed: () {
                         _submitForm();
                       },
-                      color: Colors.teal,
+                      color: appPrimaryColor,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(60)),
                       child: const Text(
